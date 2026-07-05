@@ -15,20 +15,15 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: 514567385064.dkr.ecr.us-east-1.amazonaws.com/tienda-db:eks-v1
+          image: 542768639545.dkr.ecr.us-east-1.amazonaws.com/tienda-db2:eks-v1 # Colocar uri de tu imagen en ECR
           ports:
             - containerPort: 3306
           env:
-            # Ya que definiste el password en el Dockerfile, 
-            # esta inyección de secret debe ser exacta..
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secret
                   key: MYSQL_ROOT_PASSWORD
-          # IMPORTANTE: Eliminamos el montaje de emptyDir a /var/lib/mysql 
-          # si quieres que la base de datos sea temporal.
-          # O mejor aún, cambiamos el path para no interferir con la inicialización.
           volumeMounts:
             - name: data
               mountPath: /var/lib/mysql
