@@ -33,7 +33,7 @@ spec:
             - name: DB_PORT
               value: "3306"
 
-          # Se agrega Resourcee para que Metrics Server calcule el % de CPU y Memoria para escalar 
+          # Se agregaa Resourcee para que Metrics Server calcule el % de CPU y Memoria para escalar 
           resources:
             requests:
               cpu: "100m"
