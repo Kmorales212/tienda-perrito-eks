@@ -12,10 +12,13 @@ spec:
     metadata:
       labels:
         app: tienda-db
+      annotations:
+        # AQUÍ ESTÁ LA CLAVE: Deshabilitar la inyección automática
+        instrumentation.opentelemetry.io/inject: "false"
     spec:
       containers:
         - name: mysql
-          image: 514567385064.dkr.ecr.us-east-1.amazonaws.com/tienda-db2:eks-v1 # Colocar uri de tu imagen en ECR
+          image: 514567385064.dkr.ecr.us-east-1.amazonaws.com/tienda-db2:eks-v1
           ports:
             - containerPort: 3306
           env:
