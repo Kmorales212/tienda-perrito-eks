@@ -20,7 +20,7 @@ spec:
             - containerPort: 3306
           env:
             # Ya que definiste el password en el Dockerfile, 
-            # esta inyección de secret debe ser exacta.
+            # esta inyección de secret debe ser exacta..
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
